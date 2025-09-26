@@ -1,0 +1,41 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Default shared Renovate preset providing the main/base configuration for all projects.",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":separateMultipleMajorReleases"
+  ],
+  "timezone": "UTC",
+  "labels": ["dependencies", "renovate"],
+  "prHourlyLimit": 10,
+  "prConcurrentLimit": 20,
+  "dependencyDashboard": true,
+  "enabledManagers": [
+    "npm",
+    "docker",
+    "github-actions",
+    "pip_requirements",
+    "poetry",
+    "gomod",
+    "gradle",
+    "maven"
+  ],
+  "rangeStrategy": "bump",
+  "rebaseWhen": "behind-base-branch",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr",
+      "requiredStatusChecks": null
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
+    }
+  ],
+  "schedule": [
+    "after 2am and before 6am on monday"
+  ]
+}

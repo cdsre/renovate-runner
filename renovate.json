@@ -1,27 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":semanticCommits",
-    ":separateMultipleMajorReleases"
+    "local>pre-sets/cdsre"
   ],
-  "timezone": "UTC",
-  "labels": ["dependencies", "renovate"],
-  "prHourlyLimit": 10,
-  "prConcurrentLimit": 20,
-  "dependencyDashboard": true,
-  "enabledManagers": ["npm", "docker", "github-actions", "pip_requirements", "poetry", "gomod", "gradle", "maven"],
-  "rangeStrategy": "bump",
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "pr",
-      "requiredStatusChecks": null
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "groupName": "github-actions"
-    }
-  ]
+  "onboardingConfig": {
+    "extends": [
+      "github>cdsre/renovate-runner//pre-sets/cdsre.json"
+    ]
+  }
 }

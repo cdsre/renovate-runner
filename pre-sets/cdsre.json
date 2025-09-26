@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "CDSRE shared Renovate preset for consistent dependency management across projects. Extends the default base preset and adds CDSRE-specific tweaks.",
+  "extends": [
+    "local>pre-sets/default"
+  ],
+  "labels": ["dependencies", "renovate", "cdsre"]
+}
