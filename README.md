@@ -39,5 +39,6 @@ The workflow has `RENOVATE_ONBOARDING=true` and `RENOVATE_REQUIRE_CONFIG=true` s
 ## Notes
 
 - Automerge is disabled globally in the base preset. Renovate will not auto-merge PRs of any type. If you want to enable automerge for a specific repo, add a per-repo renovate.json with appropriate packageRules.
+- Grouping: All minor and patch updates will be batched into a single PR named "all non-major dependencies". Major updates remain separate PRs (and multiple majors are separated by default due to `:separateMultipleMajorReleases`).
 - Safety limits are configured via `RENOVATE_PR_HOURLY_LIMIT` and `RENOVATE_PR_CONCURRENT_LIMIT`.
 - Add or remove managers and rules in `pre-sets/cdsre.json` to centrally change behavior across all onboarded repositories.

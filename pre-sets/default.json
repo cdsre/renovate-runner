@@ -26,6 +26,12 @@
   "automerge": false,
   "packageRules": [
     {
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-non-major",
+      "separateMultipleMajorReleases": true
+    },
+    {
       "matchManagers": ["github-actions"],
       "groupName": "github-actions"
     }
