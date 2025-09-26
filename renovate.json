@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "local>pre-sets/cdsre"
+    "github>cdsre/renovate-runner//pre-sets/cdsre.json"
   ],
   "onboardingConfig": {
     "extends": [
