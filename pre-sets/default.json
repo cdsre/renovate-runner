@@ -23,13 +23,8 @@
   ],
   "rangeStrategy": "bump",
   "rebaseWhen": "behind-base-branch",
+  "automerge": false,
   "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "pr",
-      "requiredStatusChecks": null
-    },
     {
       "matchManagers": ["github-actions"],
       "groupName": "github-actions"
