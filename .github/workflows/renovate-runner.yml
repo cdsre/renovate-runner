@@ -1,0 +1,43 @@
+name: Renovate Runner
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: read
+
+concurrency:
+  group: renovate-runner
+  cancel-in-progress: false
+
+jobs:
+  renovate:
+    name: Run Renovate (autodiscover)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo (optional)
+        uses: actions/checkout@v4
+
+      - name: Run Renovate
+        uses: renovatebot/github-action@v40.1.11
+        env:
+          LOG_LEVEL: info
+          RENOVATE_PLATFORM: github
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
+          RENOVATE_AUTODISCOVER: 'true'
+          # limit to this account/org; replace OWNER if you want to restrict
+          # RENOVATE_AUTODISCOVER_FILTER: 'owner:${{ github.repository_owner }}/*'
+          RENOVATE_REPOSITORY_CACHE: 'enabled'
+          # reasonable safety limits
+          RENOVATE_PR_HOURLY_LIMIT: '10'
+          RENOVATE_PR_CONCURRENT_LIMIT: '20'
+          RENOVATE_ONBOARDING: 'false'
+          RENOVATE_REQUIRE_CONFIG: 'false'
+        with:
+          configurationFile: renovate.json
+          token: ${{ secrets.RENOVATE_TOKEN }}
