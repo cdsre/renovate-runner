@@ -44,7 +44,7 @@ jobs:
           RENOVATE_PR_CONCURRENT_LIMIT: '20'
           RENOVATE_ONBOARDING: 'true'
           RENOVATE_REQUIRE_CONFIG: 'true'
-          RENOVATE_AUTODISCOVER_TOPICS: "[ ${{ inputs.github_topic }} ]"
+          RENOVATE_AUTODISCOVER_TOPICS: ${{ inputs.github_topic }}
         with:
           configurationFile: renovate.json
           token: ${{ secrets.RENOVATE_TOKEN }}
