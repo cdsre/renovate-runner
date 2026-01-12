@@ -1,4 +1,4 @@
-name: Renovate Runner
+name: Renovate Topic Runner
 
 on:
   workflow_dispatch: 
