@@ -6,6 +6,10 @@ on:
       github_topic: 
         description: 'GitHub Topic'
         required: true
+      log_level:
+        description: 'Log Level'
+        required: false
+        default: 'info'
 
 permissions:
   contents: write
@@ -28,7 +32,7 @@ jobs:
       - name: Run Renovate
         uses: renovatebot/github-action@v43.0.13
         env:
-          LOG_LEVEL: info
+          LOG_LEVEL: ${{ inputs.log_level }}
           RENOVATE_PLATFORM: github
           RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
           RENOVATE_AUTODISCOVER: 'true'
