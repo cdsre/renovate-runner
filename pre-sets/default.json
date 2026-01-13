@@ -19,7 +19,8 @@
     "poetry",
     "gomod",
     "gradle",
-    "maven"
+    "maven",
+    "custom.regex"
   ],
   "rangeStrategy": "bump",
   "rebaseWhen": "behind-base-branch",
